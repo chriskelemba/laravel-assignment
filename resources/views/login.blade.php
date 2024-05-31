@@ -17,7 +17,12 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-group">
+                <a href="/">Don't have an account? Sign up here.</a>
+            </form>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mt-3">Login</button>
+            </form>
         </form>
     </div>
 </body>

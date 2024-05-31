@@ -27,7 +27,12 @@
                 <label for="password_confirmation">Confirm Password</label>
                 <input type="password" name="password_confirmation" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Signup</button>
+            <div class="form-group">
+                <a href="login">Already have an account? Log in.</a>
+            </form>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+            </form>
         </form>
     </div>
 </body>

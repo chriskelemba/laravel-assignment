@@ -10,7 +10,7 @@
     <div class="container">
         <div class="p-3 d-flex flex-row justify-content-between">
             <h1 class="display-4">Dashboard</h1>
-            <a href="{{ route('logout') }}" class="btn btn-secondary h-25 mt-3">Logout</a>
+            <a href="/logout" class="btn btn-secondary h-25 mt-3">Logout</a>
         </div>
         <table class="table table-striped">
             <?php
@@ -45,6 +45,10 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="Enter Password"/>
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation">Confirm Password</label>
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
             </div>
             <button type="submit" class="btn btn-primary">Add User</button>
         </form>
