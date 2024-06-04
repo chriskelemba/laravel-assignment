@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
+    @extends('layouts.navbar')
+    @section('content')
     <div class="container">
         <div class="p-3 d-flex flex-row justify-content-between">
             <h1 class="display-4">Dashboard</h1>
@@ -53,5 +55,6 @@
             <button type="submit" class="btn btn-primary">Add User</button>
         </form>
     </div>
+    @endsection
 </body>
 </html>

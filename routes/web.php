@@ -24,7 +24,7 @@ Route::post('/users', [UserController::class, 'add']);
 
 // Edit a user
 Route::get('/users/{id}/edit',  [UserController::class, 'edit']);
-Route::patch('/users/{id}',  [UserController::class, 'update'])->name('users.update');
+Route::patch('/users/{id}',  [UserController::class, 'update']);
 
 // Delete a user
-Route::get('/users/{id}/delete', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('/users/{id}/delete', [UserController::class, 'destroy']);
