@@ -25,10 +25,9 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            @csrf
-                            @method('PUT')
-                            
                             <form action="{{ url('roles/'.$role->id.'/give-permissions') }}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <div class="mb-3">
 
                                     @error('permission')
@@ -50,7 +49,6 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <input type="text" name="name" class="form-control" value="{{ $role->name }}"/>
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary">Update</button>

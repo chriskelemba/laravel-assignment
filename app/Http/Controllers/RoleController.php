@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -67,9 +67,16 @@ class RoleController extends Controller
     {
         $permissions = Permission::get();
         $role = Role::findOrFail($roleId);
-        $rolePermissions = DB::table('role_has_permissions')->where('role_has_permissions.role_id', $role->id)->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')->all();
+        $rolePermissions = DB::table('role_has_permissions')
+                                ->where('role_has_permissions.role_id', $role->id)
+                                ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
+                                ->all();
 
-        return view('role-permission.role.add-permissions', ['role' => $role, 'permissions' => $permissions, 'rolePermissions' => $rolePermissions]);
+        return view('role-permission.role.add-permissions', [
+            'role' => $role,
+            'permissions' => $permissions,
+            'rolePermissions' => $rolePermissions
+        ]);
     }
 
     public function givePermissionToRole(Request $request, $roleId)
@@ -79,7 +86,7 @@ class RoleController extends Controller
         ]);
 
         $role = Role::findOrFail($roleId);
-        $role->syncPermissions($request->permissions);
+        $role->syncPermissions($request->permission);
 
         return redirect()->back()->with('status', 'Permissions added to role');
     }

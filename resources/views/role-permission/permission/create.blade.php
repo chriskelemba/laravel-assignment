@@ -20,8 +20,8 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            @csrf
                             <form action="{{ url('permissions') }}" method="POST">
+                                @csrf
                                 <div class="mb-3">
                                     <label for="">Permission Name</label>
                                     <input type="text" name="name" class="form-control"/>

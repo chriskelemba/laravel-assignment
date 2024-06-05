@@ -20,10 +20,9 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            @csrf
-                            @method('PUT')
-                            
                             <form action="{{ url('roles/'.$role->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <div class="mb-3">
                                     <label for="">Role Name</label>
                                     <input type="text" name="name" class="form-control" value="{{ $role->name }}"/>
