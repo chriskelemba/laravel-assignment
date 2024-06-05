@@ -32,7 +32,7 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Name</th>
+                                        <th class="w-50">Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
