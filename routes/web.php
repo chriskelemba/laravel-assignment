@@ -18,6 +18,7 @@ Route::get('roles/{roleId}/give-permissions', [RoleController::class, 'addPermis
 Route::put('roles/{roleId}/give-permissions', [RoleController::class, 'givePermissionToRole']);
 
 Route::resource('users', UserController::class);
+Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
 
 Route::get('/', function () {
     return view('signup');

@@ -15,25 +15,36 @@
                 <div class="card">
                     <div class="card-header">
                         <div>
-                            <h4>Create User
+                            <h4>Edit User
                                 <a href="{{ url('users') }}" class="btn btn-danger float-end">Back</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ url('users') }}" method="POST">
+                            <form action="{{ url('users/'.$user->id) }}" method="POST">
                                 @csrf
-                                
+                                @method('PUT')
+
                                 <div class="mb-3">
                                     <label for="">Name</label>
-                                    <input type="text" name="name" class="form-control"/>
+                                    <input type="text" name="name" value={{ $user->name }} class="form-control"/>
+
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Email</label>
-                                    <input type="email" name="email" class="form-control"/>
+                                    <input type="email" name="email" readonly value={{ $user->email }} class="form-control"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Password</label>
                                     <input type="password" name="password" class="form-control"/>
+                                    
+                                    @error('password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Roles</label>
@@ -41,13 +52,23 @@
                                         <option value="">Select Role</option>
 
                                         @foreach ($roles as $role)
-                                            <option value="{{ $role }}">{{ $role }}</option>
+                                            <option
+                                            value="{{ $role }}"
+                                            {{ in_array($role, $userRoles) ? 'selected':'' }}
+                                            >
+                                            {{ $role }}
+                                        </option>
                                         @endforeach
 
                                     </select>
+                                    
+                                    @error('role')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </form>
                         </div>
