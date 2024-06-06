@@ -6,8 +6,21 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
 
-class UserController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+
+class UserController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view user', only: ['index']),
+            new Middleware('permission:create user', only: ['create', 'store']),
+            new Middleware('permission:update user', only: ['update', 'edit']),
+            new Middleware('permission:delete user', only: ['destroy']),
+        ];
+    }
+    
     public function index()
     {
         $users = User::get();
@@ -74,7 +87,7 @@ class UserController extends Controller
         $user->update($data);
         $user->syncRoles($request->roles);
 
-        return redirect('/users')->with('status', 'User updated successfully with roles');
+        return redirect('/users')->with('status', 'User Updated Successfully with roles');
     }
 
     public function destroy($userId)
@@ -82,7 +95,7 @@ class UserController extends Controller
         $user = User::findOrFail($userId);
         $user->delete();
 
-        return redirect('/users')->with('status', 'User deleted successfully');
+        return redirect('/users')->with('status', 'User Deleted Successfully');
     }
     // // Add a user
     // public function add(Request $request)

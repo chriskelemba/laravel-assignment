@@ -19,7 +19,6 @@
                 <div class="alert alert-success">{{ session('status') }}</div>
             @endif
 
-
                 <div class="card mt-3">
                     <div class="card-header">
                         <div>
@@ -42,8 +41,15 @@
                                         <td>{{ $permission->id }}</td>
                                         <td>{{ $permission->name }}</td>
                                         <td>
-                                            <a href="{{ url('permissions/'.$permission->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                            <a href="{{ url('permissions/'.$permission->id.'/delete') }}" class="btn btn-danger">Delete</a>
+
+                                            @can('update permission')
+                                                <a href="{{ url('permissions/'.$permission->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                            @endcan
+
+                                            @can('delete permission')
+                                                <a href="{{ url('permissions/'.$permission->id.'/delete') }}" class="btn btn-danger">Delete</a>
+                                            @endcan
+
                                         </td>
                                     </tr>
                                     @endforeach

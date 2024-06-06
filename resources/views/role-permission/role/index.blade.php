@@ -43,8 +43,15 @@
                                         <td>{{ $role->name }}</td>
                                         <td>
                                             <a href="{{ url('roles/'.$role->id.'/give-permissions') }}" class="btn btn-warning">Add / Edit Role Permission</a>
-                                            <a href="{{ url('roles/'.$role->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                            <a href="{{ url('roles/'.$role->id.'/delete') }}" class="btn btn-danger">Delete</a>
+
+                                            @can('update role')
+                                                <a href="{{ url('roles/'.$role->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                            @endcan
+
+                                            @can('delete role')
+                                                <a href="{{ url('roles/'.$role->id.'/delete') }}" class="btn btn-danger">Delete</a>
+                                            @endcan
+                                            
                                         </td>
                                     </tr>
                                     @endforeach
