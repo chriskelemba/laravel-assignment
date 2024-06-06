@@ -1,33 +1,30 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">My Website</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="/dashboard">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('roles') }}" class="nav-link btn btn-primary mx-2">Roles</a>
+                <a href="{{ url('roles') }}" class="nav-link btn btn-primary text-white mx-2">Roles</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('permissions') }}" class="nav-link btn btn-info mx-2">Permissions</a>
+                <a href="{{ url('permissions') }}" class="nav-link btn btn-info text-white mx-2">Permissions</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('users') }}" class="nav-link btn btn-warning mx-2">Users</a>
+                <a href="{{ url('users') }}" class="nav-link btn btn-warning text-white mx-2">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link text-white" href="/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/signup">Signup</a>
+                <a class="nav-link text-white" href="/signup">Signup</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
+                <a class="nav-link text-white" href="/logout">Logout</a>
             </li>
             </ul>
         </div>
     </nav>
 </div>
+@yield('content')

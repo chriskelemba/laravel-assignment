@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-@extends('layouts.navbar')
-
+    @extends('role-permission.nav-links')
     @section('content')
-    @include('role-permission.nav-links')
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
